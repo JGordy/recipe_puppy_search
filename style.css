@@ -26,6 +26,16 @@ body {
   color: darkcyan;
 }
 
+#submit {
+  padding: 10px;
+  border: 2px solid black;
+  margin-left: 15px;
+  border-radius: 7px;
+  font-size: 16px;
+  background: linear-gradient(#ccc, #fff);
+  color: darkcyan;
+}
+
 #container {
   display: flex;
   flex-wrap: wrap;

@@ -1,9 +1,18 @@
 let container = document.getElementById("container");
 
-let search = document.getElementById("search");
-search.addEventListener("input", fetch);
+
+
+
+
+let submit = document.getElementById("submit");
+submit.addEventListener("click", function() {
+  container.innerHTML = "";
+  let search = document.getElementById("search");
+
+  let info = "https://recipepuppyproxy.herokuapp.com/api/?q=" + search.value;
+
 // fetch call
-fetch("https://recipepuppyproxy.herokuapp.com/api/?q=" + search.value)
+fetch(info)
   .then(function(response) {
     if (response.status !== 200) {
       console.log("Response status: ", response);
@@ -11,8 +20,6 @@ fetch("https://recipepuppyproxy.herokuapp.com/api/?q=" + search.value)
     }
     response.json().then(function(data) {
       console.log("test", response.url);
-
-      console.log(data);
 
       for (var i = 0; i < data.results.length; i++) {
 
@@ -40,4 +47,5 @@ fetch("https://recipepuppyproxy.herokuapp.com/api/?q=" + search.value)
   })
   .catch(function(err) {
     console.log("Fetch Error :-S", err);
+  });
   });
