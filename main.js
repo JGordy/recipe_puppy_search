@@ -1,7 +1,9 @@
 let container = document.getElementById("container");
 
+let search = document.getElementById("search");
+search.addEventListener("input", fetch);
 // fetch call
-fetch("https://recipepuppyproxy.herokuapp.com/api/?q=bacon")
+fetch("https://recipepuppyproxy.herokuapp.com/api/?q=" + search.value)
   .then(function(response) {
     if (response.status !== 200) {
       console.log("Response status: ", response);
